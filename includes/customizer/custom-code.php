@@ -79,6 +79,108 @@ print_r($options);
         $custom_css .= 'background-color: ' . $options['custom_form_bg_color'] . ';';
     }
 
+    if (! empty( $options['custom_form_width'] ) ){
+
+        $custom_css .= 'width: ' . $options['custom_form_width'] . ';';
+    }
+    if (! empty( $options['custom_form_height'] ) ){
+
+        $custom_css .= 'height: ' . $options['custom_form_height'] . ';';
+    }
+    if (! empty( $options['custom_form_padding'] ) ){
+
+        $custom_css .= 'padding: ' . $options['custom_form_padding'] . ';';
+    }
+
+    if (! empty( $options['custom_form_radius'] ) ){
+
+        $custom_css .= 'border-radius: ' . $options['custom_form_radius'] .';';
+    }
+    if ( ! empty( $options['custom_form_shadow_spread'] ) && ! empty( $options['custom_form_shadow'] ) ) {
+        $custom_css .= 'box-shadow: 0 1px ' . $options['custom_form_shadow_spread'] . ' ' . $options['custom_form_shadow'] . ';';
+    }
+
+    $custom_css .= '}';
+
+    // remember me link
+
+    $custom_css .= 'body.login div#login form#loginform p.forgetmenot {';
+
+    if ($options['custom_field_remember_me'] == 1){
+
+        $custom_css .= 'display: none;';
+    }
+
+    $custom_css .= '}';
+
+    // login page field css
+
+    $custom_css .= '#login form#loginform .input, #login form#registerform .input, #login form#lostpasswordform .input {';
+
+    if (! empty( $options['custom_field_width'] ) ){
+
+        $custom_css .= 'width: ' . $options['custom_field_width'] . ';';
+    }
+    if (! empty( $options['custom_field_font_size'] ) ){
+
+        $custom_css .= 'font-size: ' . $options['custom_field_font_size'] . ';';
+    }
+    if (! empty( $options['custom_field_border_width'] ) ){
+
+        $custom_css .= 'border-width: ' . $options['custom_field_border_width'] . ';';
+    }
+    if (! empty( $options['custom_field_border_color'] ) ){
+
+        $custom_css .= 'border-color: ' . $options['custom_field_border_color'] . ';';
+    }
+    if (! empty( $options['custom_field_radius'] ) ){
+
+        $custom_css .= 'borde-radius: ' . $options['custom_field_radius'] . ';';
+    }
+    if ($options['custom_field_box_shadow'] == 1){
+
+        $custom_css .= 'box-shadow: unset;';
+    }
+    if (! empty( $options['custom_field_margin'] ) ){
+
+        $custom_css .= 'margin: ' . $options['custom_field_margin'] . ';';
+    }
+    if (! empty( $options['custom_field_padding'] ) ){
+
+        $custom_css .= 'padding: ' . $options['custom_field_padding'] . ';';
+    }
+
+    if (! empty( $options['custom_field_bg_color'] ) ){
+
+        $custom_css .= 'background-color: ' . $options['custom_field_bg_color'] . ';';
+    }
+    if (! empty( $options['custom_field_bg_color'] ) ){
+
+        $custom_css .= 'background-color: ' . $options['custom_field_bg_color'] . ';';
+    }
+
+    if (! empty( $options['custom_field_color'] ) ){
+
+        $custom_css .= 'color: ' . $options['custom_field_color'] . ';';
+    }
+
+
+    $custom_css .= '}';
+
+    // login form label css
+
+    $custom_css .= '#login form#loginform label, #login form#registerform label, #login form#lostpasswordform label {';
+
+    if (! empty( $options['custom_field_label_color'] ) ){
+
+        $custom_css .= 'color: ' . $options['custom_field_label_color'] . ';';
+    }
+
+    if (! empty( $options['custom_field_label_font_size'] ) ){
+
+        $custom_css .= 'font-size: ' . $options['custom_field_label_font_size'] . ';';
+    }
+
     $custom_css .= '}';
 
     wp_add_inline_style( 'render_style', $custom_css );
