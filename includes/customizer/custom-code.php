@@ -183,6 +183,121 @@ print_r($options);
 
     $custom_css .= '}';
 
+    // login button css
+
+    $custom_css .= '#login form .submit .button {';
+
+    $custom_css .= 'height: auto;';
+
+    if (! empty($options['custom_button_bg'] ) ){
+
+        $custom_css .= 'background-color: ' . $options['custom_button_bg'] . ';';
+    }
+
+    if (! empty( $options['custom_button_height_width'] ) && $options['custom_button_height_width'] === 'custom'){
+
+        if (! empty( $options['custom_button_width_size'] ) ){
+
+            $custom_css .= 'width: ' . $options['custom_button_width_size'] . ';';
+        }
+
+        if (! empty( $options['custom_button_height_size'] ) ){
+
+            $custom_css .= 'height: ' . $options['custom_button_height_size'] . ';';
+        }
+    }
+    if (! empty( $options['custom_button_font_size'] ) ){
+
+        $custom_css .= 'font-size: ' . $options['custom_button_font_size'] . ';';
+    }
+
+    if (! empty( $options['custom_button_text_color'] ) ){
+
+        $custom_css .= 'color: ' . $options['custom_button_text_color'] . ';';
+    }
+    if (! empty( $options['custom_button_padding'] ) ){
+
+        $custom_css .= 'padding: ' . $options['custom_button_padding'] . ';';
+    }
+
+    if (! empty( $options['custom_button_border_width'] ) ){
+
+        $custom_css .= 'border-width: ' . $options['custom_button_border_width'] . ';';
+    }
+
+    if (! empty( $options['custom_button_border_color'] ) ){
+
+        $custom_css .= 'border-color: ' . $options['custom_button_border_color'] . ';';
+    }
+
+    if (! empty( $options['custom_button_shadow_spread'] ) && ! empty( $options['custom_button_shadow'] ) ) {
+
+        $custom_css .= 'box-shadow: 0px 1px ' . $options['custom_button_shadow_spread'] . ' ' . $options['custom_button_shadow'] . ';';
+    }
+
+    if ( ! empty( $options['custom_button_text_shadow'] ) ) {
+        $custom_css .= 'text-shadow: 0 -1px 1px ' . $options['custom_button_text_shadow'] . ',1px 0 1px ' . $options['custom_button_text_shadow'] . ',0 1px 1px ' . $options['custom_button_text_shadow'] . ',-1px 0 1px ' . $options['custom_button_text_shadow'] . ';';
+    }
+
+
+    $custom_css .= '}';
+
+// login button on hover css
+
+    $custom_css .= '#login form .submit .button:hover, #login form .submit .button:focus {';
+
+    if (! empty( $options['custom_button_bg_hover'] ) ){
+
+        $custom_css .= 'background-color: ' . $options['custom_button_bg_hover'] . ';';
+    }
+
+    if (! empty( $options['custom_button_border_color_hover'] ) ){
+
+        $custom_css .= 'border-color: ' . $options['custom_button_border_color_hover'] . ';';
+    }
+
+    $custom_css .= '}';
+
+
+    // Register Link CSS
+    if ( is_customize_preview() ) {
+        if ( ! empty( $options['custom_other_register_link'] ) && $options['custom_other_register_link'] === 1 ) {
+            $custom_css .= '#login #nav a:first-child {';
+            $custom_css .= 'display: none;';
+            $custom_css .= '}';
+        }
+    }
+
+    // Lost Password Link CSS
+    if ( ! empty( $options['custom_other_lost_password'] ) && $options['custom_other_lost_password'] === 1 ) {
+        $custom_css .= '#login #nav a:last-child {';
+        $custom_css .= 'display: none;';
+        $custom_css .= '}';
+    }
+
+    //// Other Styling
+    if ( ! empty( $options['custom_other_back_blog'] ) && $options['custom_other_back_blog'] === 1 ) {
+        $custom_css .= '#login #backtoblog {';
+        $custom_css .= 'display: none;';
+        $custom_css .= '}';
+    }
+
+    if ( ! empty( $options['custom_other_font_size'] ) ) {
+        $custom_css .= '.login #nav, .login #nav a, .login #backtoblog a {';
+        $custom_css .= 'font-size: ' . $options['custom_other_font_size'] . ';';
+        $custom_css .= '}';
+    }
+    if ( ! empty( $options['custom_other_color'] ) ) {
+        $custom_css .= '.login #nav, .login #nav a, .login #backtoblog a {';
+        $custom_css .= 'color: ' . $options['custom_other_color'] . ';';
+        $custom_css .= '}';
+    }
+    if ( ! empty( $options['custom_other_color_hover'] ) ) {
+        $custom_css .= '.login #backtoblog a:hover, .login #nav a:hover {';
+        $custom_css .= 'color: ' . $options['custom_other_color_hover'] . ';';
+        $custom_css .= '}';
+    }
+
     wp_add_inline_style( 'render_style', $custom_css );
 }
 

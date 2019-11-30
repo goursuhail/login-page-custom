@@ -39,6 +39,10 @@ function custom_login_page_register($wp_customize)
     require_once (CLP_PATH.'/includes/customizer/section/section-form.php');
     // section fields
     require_once (CLP_PATH.'/includes/customizer/section/section-field.php');
+    // section button
+    require_once (CLP_PATH.'/includes/customizer/section/section-button.php');
+    // section other
+    require_once (CLP_PATH.'/includes/customizer/section/section-other.php');
 }
 
 add_action('customize_register', 'custom_login_page_register');
