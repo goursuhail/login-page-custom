@@ -46,7 +46,7 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-    new O2_Customizer_Toggle_Control($wp_customize, 'customlogin_option[custom_other_lost_password]', array(
+    new O2_Customizer_Toggle_Control($wp_customize, 'customlogin_option[custom_other_lost_password_control]', array(
 
         'label' => __('Disable Lost Password', 'custom-login-page'),
         'section' => 'custom_other_section',
@@ -66,7 +66,7 @@ $wp_customize->add_setting(
 );
 
 $wp_customize->add_control(
-    new O2_Customizer_Toggle_Control($wp_customize, 'customlogin_option[custom_other_back_blog]', array(
+    new O2_Customizer_Toggle_Control($wp_customize, 'customlogin_option[custom_other_back_blog_site]', array(
 
         'label' => __('Disable "Back to website"?', 'custom-login-page'),
         'section' => 'custom_other_section',

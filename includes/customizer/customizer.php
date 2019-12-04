@@ -13,6 +13,8 @@ require_once (CLP_PATH.'/includes/customizer/controls/range-slider/range-slider-
 require_once (CLP_PATH.'/includes/customizer/controls/padding/padding-control.php');
 // alpha color control
 require_once (CLP_PATH.'/includes/customizer/controls/alpha/alpha-control.php');
+// radio
+require_once (CLP_PATH.'/includes/customizer/controls/radio-images/radio-images-control.php');
 
 
 
@@ -43,6 +45,10 @@ function custom_login_page_register($wp_customize)
     require_once (CLP_PATH.'/includes/customizer/section/section-button.php');
     // section other
     require_once (CLP_PATH.'/includes/customizer/section/section-other.php');
+    //section templates
+    require_once (CLP_PATH. 'includes/customizer/section/section-templates.php');
+    //section custom code
+    require_once  (CLP_PATH. 'includes/customizer/section/section-code.php');
 }
 
 add_action('customize_register', 'custom_login_page_register');

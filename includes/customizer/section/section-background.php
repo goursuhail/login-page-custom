@@ -1,6 +1,6 @@
 <?php
 
-
+// customize control for background section
 
 
    $wp_customize->add_section('customlogin_section', array(

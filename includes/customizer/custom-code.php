@@ -206,6 +206,25 @@ print_r($options);
             $custom_css .= 'height: ' . $options['custom_button_height_size'] . ';';
         }
     }
+
+
+    if (! empty($options['custom_button_height_width'] ) && $options['custom_button_height_width'] === 'auto'){
+
+        if (! empty( $options['custom_button_width_size'] ) ){
+
+            $custom_css .= 'display: none';
+        }
+
+        if (! empty( $options['custom_button_height_size'] ) ){
+
+            $custom_css .= 'display: none';
+        }
+    }
+
+
+
+
+
     if (! empty( $options['custom_button_font_size'] ) ){
 
         $custom_css .= 'font-size: ' . $options['custom_button_font_size'] . ';';
@@ -269,14 +288,14 @@ print_r($options);
     }
 
     // Lost Password Link CSS
-    if ( ! empty( $options['custom_other_lost_password'] ) && $options['custom_other_lost_password'] === 1 ) {
+    if ( ! empty( $options['custom_other_lost_password'] ) && $options['custom_other_lost_password'] == 1 ) {
         $custom_css .= '#login #nav a:last-child {';
         $custom_css .= 'display: none;';
         $custom_css .= '}';
     }
 
     //// Other Styling
-    if ( ! empty( $options['custom_other_back_blog'] ) && $options['custom_other_back_blog'] === 1 ) {
+    if ( ! empty( $options['custom_other_back_blog'] ) && $options['custom_other_back_blog'] == 1 ) {
         $custom_css .= '#login #backtoblog {';
         $custom_css .= 'display: none;';
         $custom_css .= '}';
@@ -298,8 +317,31 @@ print_r($options);
         $custom_css .= '}';
     }
 
+    //custom css
+
+    if (! empty( $options['custom_css_code'] ) ){
+
+        $custom_css .= $options['custom_css_code'];
+    }
+
+
+
     wp_add_inline_style( 'render_style', $custom_css );
 }
 
-add_action( 'login_enqueue_scripts', 'customlogin_render_style' )
+add_action( 'login_enqueue_scripts', 'customlogin_render_style' );
+
+
+
+
+function logincust_render_script() {
+    // Get plugin options array
+    $options = get_option( 'customlogin_option' );
+    if ( ! empty( $options['custom_javascript_code'] ) ) {
+        echo '<script>' . "\n" . $options['custom_javascript_code'] . "\n" . '</script>' . "\n";
+    }
+}
+
+// Hook script to login page
+add_action( 'login_footer', 'logincust_render_script' );
 ?>
