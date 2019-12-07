@@ -11,8 +11,8 @@ class CustomLogin{
     function custom_enqueue_script(){
 
 
-        wp_enqueue_script('customjs', CLP_PATH.'/assets/css/custom'.CLP_SCRIPT_SUFFIX.'.js', ['jquery', 'jquery-color'], CLP_VERSION, true);
-        wp_enqueue_style('customcss', CLP_PATH.'/assets/js/custom'.CLP_SCRIPT_SUFFIX.'.css', CLP_VERSION);
+        wp_enqueue_script('customjs', CLP_URL.'/assets/js/custom'.CLP_SCRIPT_SUFFIX.'.js', ['jquery', 'jquery-color'], CLP_VERSION, true);
+        wp_enqueue_style('customcss', CLP_URL.'/assets/css/custom'.CLP_SCRIPT_SUFFIX.'.css', CLP_VERSION);
     }
 
 

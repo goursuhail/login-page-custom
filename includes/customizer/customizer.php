@@ -19,6 +19,7 @@ require_once (CLP_PATH.'/includes/customizer/controls/radio-images/radio-images-
 
 
 
+
 //register login page settings..
 function custom_login_page_register($wp_customize)
 {
@@ -53,4 +54,25 @@ function custom_login_page_register($wp_customize)
 
 add_action('customize_register', 'custom_login_page_register');
 
+/**
+ * Enqueue script to Customizer
+ */
+function customlogin_customizer_script() {
+    // Enqueue script to Customizer
+    wp_enqueue_script( 'customlogin_control_js', CLP_URL . 'includes/customizer/assets/js/customizer.js', array( 'jquery' ), null, true );
+
+    // Generate the redirect url.
+    $options = get_option( 'customlogin_option', array() );
+
+    $localize = array(
+        'page' => get_permalink( $options['page'] ),
+        'url' => CLP_URL,
+    );
+
+
+
+    // Localize Script
+    wp_localize_script( 'customlogin_control_js', 'customlogin_script', $localize );
+}
+add_action( 'customize_controls_print_scripts', 'customlogin_customizer_script' );
 ?>

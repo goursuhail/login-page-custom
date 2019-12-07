@@ -1,0 +1,34 @@
+body.login.body-dark{
+
+    background-color: #000000;
+    background-size: auto;
+
+}
+.body-dark #loginform{
+    background-color: #000000 !important;
+}
+
+.body-dark #nav a, #backtoblog a{
+    color: #999999;
+}
+
+body.login.body-original{
+
+    background-color: #f1f1f1;
+    background-size: auto;
+}
+.body-original #loginform{
+
+    background-color: #ffffff !important;
+}
+
+.body-original #nav a, #backtoblog a{
+
+    color: #999999 !important;
+}
+
+body.login.body-material{
+
+    background-color: #006eb7;
+    background-size: auto;
+}

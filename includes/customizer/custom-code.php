@@ -4,11 +4,12 @@ function customlogin_render_style(){
 
 
 
-    wp_enqueue_style('render_style', CLP_PATH.'/includes/customizer/assets/css/customizer.css');
+    wp_enqueue_style('render_style', CLP_URL.'/includes/customizer/assets/css/customizer.css');
+    wp_enqueue_style('body_style', CLP_URL. '/includes/customizer/assets/css/body-class.css');
 
     $options = get_option('customlogin_option');
 
-print_r($options);
+//print_r($options);
     $custom_css = '';
 
     // login page background
@@ -208,21 +209,6 @@ print_r($options);
     }
 
 
-    if (! empty($options['custom_button_height_width'] ) && $options['custom_button_height_width'] === 'auto'){
-
-        if (! empty( $options['custom_button_width_size'] ) ){
-
-            $custom_css .= 'display: none';
-        }
-
-        if (! empty( $options['custom_button_height_size'] ) ){
-
-            $custom_css .= 'display: none';
-        }
-    }
-
-
-
 
 
     if (! empty( $options['custom_button_font_size'] ) ){
@@ -326,6 +312,9 @@ print_r($options);
 
 
 
+
+
+
     wp_add_inline_style( 'render_style', $custom_css );
 }
 
@@ -342,6 +331,23 @@ function logincust_render_script() {
     }
 }
 
+
 // Hook script to login page
 add_action( 'login_footer', 'logincust_render_script' );
+
+//custom template
+function add_body_class_to_login_page( $classes ) {
+    $options = get_option('customlogin_option');
+    $body_class   = $options['custom_template'];
+    $classes[] = "body-{$body_class}";
+    return $classes;
+
+}
+
+add_filter( 'login_body_class', 'add_body_class_to_login_page' );
+
+
+
+
+
 ?>
