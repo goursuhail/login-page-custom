@@ -339,8 +339,16 @@ add_action( 'login_footer', 'logincust_render_script' );
 function add_body_class_to_login_page( $classes ) {
     $options = get_option('customlogin_option');
     $body_class   = $options['custom_template'];
-    $classes[] = "body-{$body_class}";
-    return $classes;
+    if ($options['custom_disable_templates'] == 1){
+
+        return $classes;
+
+
+    }else{
+        $classes[] = "body-{$body_class}";
+        return $classes;
+    }
+
 
 }
 

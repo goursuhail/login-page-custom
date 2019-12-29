@@ -11,6 +11,25 @@ $wp_customize->add_section(
     )
 );
 
+
+$wp_customize->add_setting('customlogin_option[custom_disable_templates]', array(
+
+        'default' => false,
+        'type' => 'option',
+        'capability' => 'edit_theme_options'
+    )
+);
+
+$wp_customize->add_control(new O2_Customizer_Toggle_Control($wp_customize, 'customlogin_option[custom_disable_templates_control]', array(
+
+    'label' => __('Disable Templates', 'custom-login-page'),
+      'section' =>   'custom_template_section',
+        'priority' => 5,
+        'settings' => 'customlogin_option[custom_disable_templates]'
+
+    ))
+);
+
 $wp_customize->add_setting(
     'customlogin_option[custom_template]', array(
 
@@ -25,7 +44,7 @@ $wp_customize->add_control(new O2_Customizer_Radio_Images_Control($wp_customize,
 
         'label'=> __('Templates', 'custom-login-page'),
         'section' => 'custom_template_section',
-        'priority' => 5,
+        'priority' => 10,
         'settings' => 'customlogin_option[custom_template]',
         'choices' => array(
 
